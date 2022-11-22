@@ -1,12 +1,44 @@
 import './App.css';
 import { Component } from 'react';
-import Greet from './components/Greet';
+// import Greet from './components/Greet';
+import Welcome from './components/Welcome';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onBC = this.onBC.bind(this);
+    this.countUp = this.countUp.bind(this)
+    this.countDown = this.countDown.bind(this)
+    this.state = {
+      count: 10,
+    };
+  }
+
+  countDown() {
+    this.setState ({
+      count: this.state.count - 1,
+    })
+  }
+
+  countUp() {
+    this.setState ({
+      count: this.state.count + 1,
+    })
+  }
+
+  onBC() {
+    console.log('Button has been clicked.')
+  }
+
   render() {
+    const {count} = this.state;
+
     return (
       <div className="App">
-        <Greet />
+        <Welcome name={'Elise'} onDownButtonClicked={this.countDown} onUpButtonClicked={this.countUp}/>
+        <p>{count}</p>
+        {/* <Greet /> */}
       </div>
     );
   }
