@@ -1,7 +1,7 @@
 import './App.css';
 import { Component } from 'react';
-// import Greet from './components/Greet';
 import Welcome from './components/Welcome';
+import Hello from './components/Hello';
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends Component {
       <div className="App">
         <Welcome name={'Elise'} onDownButtonClicked={this.countDown} onUpButtonClicked={this.countUp}/>
         <p>{count}</p>
-        {/* <Greet /> */}
+        <Hello name={'Elise'} age='31'/>
       </div>
     );
   }
